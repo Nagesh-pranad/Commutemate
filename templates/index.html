@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CommuteMate+ — Smart Bangalore Commute</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-mark"><span>🚇</span></div>
+      <div class="logo-wordmark">CommuteMate<sub>+</sub></div>
+    </div>
+    <div class="header-status">
+      <div class="pulse-dot"></div>
+      <span>Bangalore Metro Zone Active</span>
+    </div>
+  </header>
+
+  <!-- GRID -->
+  <div class="dashboard-grid">
+
+    <!-- LEFT -->
+    <div style="display:flex;flex-direction:column;gap:20px;">
+
+      <!-- Add Event -->
+      <div class="panel">
+        <div class="panel-title">New Event</div>
+        <form id="event-form" autocomplete="off">
+
+          <div class="form-group">
+            <label class="form-label" for="ev-name">Event Name</label>
+            <input class="form-input" id="ev-name" type="text"
+              placeholder="Client meeting, Doctor visit…" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ev-source">
+              Source Location
+              <span class="label-badge">from</span>
+            </label>
+            <input class="form-input source-highlight" id="ev-source" type="text"
+              placeholder="e.g. Whitefield Bangalore" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ev-dest">
+              Destination
+              <span class="label-badge">to</span>
+            </label>
+            <input class="form-input" id="ev-dest" type="text"
+              placeholder="e.g. MG Road Bangalore" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label" for="ev-date">Date</label>
+              <input class="form-input" id="ev-date" type="date" required />
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label" for="ev-time">Time</label>
+              <input class="form-input" id="ev-time" type="time" required />
+            </div>
+          </div>
+
+          <div style="margin-top:18px;">
+            <button class="btn btn-primary" type="submit">+ Add Event</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Event List -->
+      <div class="panel">
+        <div class="panel-title">Your Events</div>
+        <div id="events-list">
+          <div class="empty-state">
+            <div class="empty-icon">📅</div>
+            <div class="empty-title">No events added yet</div>
+            <div class="empty-sub">Add one above to start planning</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /left -->
+
+    <!-- RIGHT -->
+    <div class="right-panel">
+      <div class="panel" style="flex:1">
+        <div class="panel-title">Commute Planner</div>
+        <div id="commute-panel"></div>
+      </div>
+    </div>
+
+  </div><!-- /grid -->
+</div><!-- /container -->
+
+<div id="toast-wrap" class="toast-wrap"></div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
